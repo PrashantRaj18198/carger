@@ -19,7 +19,10 @@ const schema = new Schema({
     city: {type:String, required:true},
     state: {type: String, required:true},
     gender: {type:String, enum: ['Male', 'Female', 'Prefer not to say']},
-    coordinates: {type:String},
+    coordinates: {
+        latitude: {type:String},
+        longitude: {type:String},
+    },
     nearGas: {type:String},
     eId: {type:String},
     balance: {type:String},
