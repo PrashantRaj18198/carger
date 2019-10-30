@@ -6,13 +6,13 @@ const schema = new Schema({
     name: {type:String, required:true},
     fuelDetails: [{
         fuel: {type:String, required:true},
+        quantity: {type:String, required:true}, 
         price: {type:Number, required:true}
     }],
-    totalFillingPoints: {type:Number, required:true},
-    coordinates: {
-        latitude: {type:String, required:true},
-        longitude: {type:String, required:true},
-    },
+    pumps: [{
+        id: {type:String, required:true},
+    }],
+    address: {type:String, required:true},
     emergencyShutdown: {type:Boolean, default:false},
 });
 

@@ -14,7 +14,7 @@ const schema = new Schema({
         }
     },
     email: {type:String, required: true},
-    gender: {type:String, enum: ['Male', 'Female', 'Prefer not to say']},
+    gender: {type:String, enum: ['Male', 'Female', 'Prefer not to say'], default:'Prefer not to say'},
     worksAt: {
         pId: {type:String, required:true},
         pName: {type:String, required:true},
