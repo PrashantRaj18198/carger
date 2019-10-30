@@ -14,35 +14,30 @@ const schema = new Schema({
         }
     },
     email: {type:String, required: true},
-    address: {type: String, required:true},
-    landmark: {type:String},
-    city: {type:String, required:true},
-    state: {type: String, required:true},
-    gender: {type:String, enum: ['Male', 'Female', 'Prefer not to say']},
-    coordinates: {
-        latitude: {type:String},
-        longitude: {type:String},
-    },
-    nearGas: {type:String},
+    gender: {type:String, enum: ['Male', 'Female', 'Prefer not to say'], default:'Prefer not to say'},
     eId: {type:String},
     balance: {type:String},
     eWalletPin: {type:String},
     gasTransactions: [{
         transactionId: {type:String, required:true},
-        gasAmount: {type:Number, required:true},
-        status: {type:String, enum:['initiated', 'incomplete', 'completed', 'failed'], required=true},
-        pId: {type:String, required:true},
-        createdAt: {type:Date, default: Date.now, required=true},
-        updatedAt: {type:Date, default: Date.now, required=true}, 
-        cost: {type:Number, required=true}
+        fuelType: {type:String, required:true},
+        fuelPrice: {type:Number, required:true},
+        quantity: {type:Number, required:true}, 
+        cost: {type:Number, required:true},
+        status: {type:String, enum:['initiated', 'processing', 'completed', 'failed'], required:true},
+        pId: {type:String, required:true}, //Petrol station ID
+        pumpId: {type:String, required:true},
+        createdAt: {type:Date, default: Date.now, required:true},
+        updatedAt: {type:Date, default: Date.now, required:true},
+        eWalletTransactionId: {type:String, required : true}
     }],
     eWalletTransactions: [{
         transactionId: {type:String, required:true},
-        status: {type:String, enum:['initiated', 'incomplete', 'completed', 'failed'], required=true},
+        status: {type:String, enum:['initiated', 'processing', 'completed', 'failed'], required:true},
         type: {type:String, enum:['credit', 'debit']},
-        createdAt: {type:Date, default: Date.now, required=true},
-        updatedAt: {type:Date, default: Date.now, required=true}, 
-        cost: {type:Number, required=true}
+        createdAt: {type:Date, default: Date.now, required:true},
+        updatedAt: {type:Date, default: Date.now, required:true}, 
+        amount: {type:Number, required:true}
     }]
 });
 
